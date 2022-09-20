@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 
-export const UserStore=defineStore("admin",{
+export const AdminStore=defineStore("admin",{
   state :()=>{
     return{
       id:0,
