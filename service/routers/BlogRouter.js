@@ -3,6 +3,25 @@ const {db, genid} = require("../db/DBUtils");
 const {v4: uuidv4} = require("uuid")
 const router = express.Router()
 
+// 查询单个文章
+router.get("/getBlogById", async (req, res) => {
+  let {id} = req.query
+  const sql = "select * from `blog` where `id`=?"
+  let {err, rows} = await db.async.all(sql, [id])
+  if (err == null && rows.length > 0) {
+    res.send({
+      code: 200,
+      msg: "查询成功",
+      data: rows[0]
+    })
+  } else {
+    res.send({
+      code: 500,
+      msg: "查询失败",
+      date: []
+    })
+  }
+})
 
 // 添加博客
 router.post("/add", async (req, res) => {
@@ -100,8 +119,8 @@ router.get("/search", async (req, res) => {
   let searchResult = await db.async.all(searchSql, searchParams)
   let countResult = await db.async.all(searchCountSql, searchCountParams)
 
-  console.log('searchSql:'+searchSql)
-  console.log('searchCountSql:'+searchCountSql)
+  console.log('searchSql:' + searchSql)
+  console.log('searchCountSql:' + searchCountSql)
 
   if (searchResult.err == null && countResult.err == null) {
     res.send({

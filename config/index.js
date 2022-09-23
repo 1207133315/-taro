@@ -1,3 +1,4 @@
+
 const config = {
   projectName: 'myTaro',
   date: '2022-9-15',
@@ -71,7 +72,8 @@ const config = {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
       }
     }
-  }
+  },
+
 }
 
 module.exports = function (merge) {

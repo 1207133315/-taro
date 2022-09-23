@@ -22,6 +22,7 @@ import {ref, reactive, inject} from "vue";
 import {AdminStore} from "../stores/AdminStore.js"
 
 import {useRouter,useRoute} from "vue-router";
+import RouterConstants from "../common/RouterConstants.ts";
 const thisRouter=useRouter()
 const route=useRoute()
 
@@ -65,7 +66,7 @@ const login = async () => {
       localStorage.setItem("password", admin.password)
       localStorage.setItem("rember", admin.rember ? 1 : 0)
     }
-    thisRouter.push("/detail").then(r => {
+    thisRouter.push(RouterConstants.dashboardPath).then(r => {
       console.log('完成跳转')
     })
     message.success("登录成功")

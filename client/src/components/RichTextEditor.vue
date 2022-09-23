@@ -22,27 +22,28 @@
 import '@wangeditor/editor/dist/css/style.css';
 import {onBeforeUnmount, ref, shallowRef, onMounted, inject} from 'vue';
 import {Editor, Toolbar} from '@wangeditor/editor-for-vue';
-const baseUrl=inject("server_baseUrl")
+
+const baseUrl = inject("server_baseUrl")
 // 编辑器实例，必须用 shallowRef，重要！
 const editorRef = shallowRef();
 const toolbarConfig = {
-  excludeKeys:["uploadVideo"]
+  excludeKeys: ["uploadVideo"]
 };
 const editorConfig = {
   placeholder: '请输入内容...',
 };
-editorConfig.MENU_CONF={}
+editorConfig.MENU_CONF = {}
 // 图片上传
 editorConfig.MENU_CONF['uploadImage'] = {
   // 先指定服务端地址
-  server: baseUrl+'/upload/upload',
-  base64LimitSize:10*1024 // 10kb
+  server: baseUrl + '/upload/upload',
+  base64LimitSize: 10 * 1024 // 10kb
 }
-editorConfig.MENU_CONF['insertImage']={
-  parseImageSrc:(src)=>{
-    if (src.indexOf("http")!==0){
+editorConfig.MENU_CONF['insertImage'] = {
+  parseImageSrc: (src) => {
+    if (src.indexOf("http") !== 0) {
       return `${baseUrl}${src}`
-    }else {
+    } else {
       return src
     }
   }
@@ -51,20 +52,17 @@ const mode = ref("default")
 // 内容 HTML
 const valueHtml = ref("");
 
-const props = defineProps({
-  value: {
-    type: String,
-    default: ""
-  }
-})
-let initFinished = false
-const emit = defineEmits(["update:value"])
-onMounted(() => {
-  setTimeout(() => {
-    valueHtml.value = props.value
-    initFinished = true
-  }, 10)
-})
+
+const emit = defineEmits(["updateValue"])
+
+const message = inject("message");
+const setValueHtml = (content) => {
+  valueHtml.value = content
+}
+
+// 向父组件暴漏方法  想要给父组件暴漏哪个方法都可以
+defineExpose({setValueHtml})
+
 
 // 组件销毁时，也及时销毁编辑器，重要！
 onBeforeUnmount(() => {
@@ -80,9 +78,7 @@ const handleCreated = (editor) => {
 };
 const handleChange = (editor) => {
   console.log('change:', editor.getHtml());
-  if (initFinished) {// 初始化成功时再把数据往外抛 解决外部数据变化 内部内容不变的问题
-    emit("update:value", valueHtml.value)
-  }
+  emit("updateValue", valueHtml.value)
 };
 
 </script>
