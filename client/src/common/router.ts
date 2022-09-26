@@ -7,11 +7,11 @@ let routes = [
   {path: constant.detailPath, component: () => import ("../views/Detail.vue")},
   {
     path: constant.dashboardPath,
-    component: () => import ("../views/detail/Dashboard.vue"),
+    component: () => import ("../views/dashboard/Dashboard.vue"),
     redirect: constant.dashboardArticlePath,
     children: [
-      {path: constant.dashboardCategoryPath, component: () => import ("../views/detail/Category.vue")},
-      {path: constant.dashboardArticlePath, component: () => import ("../views/detail/Article.vue")}
+      {path: constant.dashboardCategoryPath, component: () => import ("../views/dashboard/Category.vue")},
+      {path: constant.dashboardArticlePath, component: () => import ("../views/dashboard/Article.vue")}
     ]
   },
   {path: "/", component: () => import ("../views/HomePage.vue")}

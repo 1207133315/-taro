@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import "../detail/less/Dashboard.less"
+import "../dashboard/less/Dashboard.less"
 import {AdminStore} from "../../stores/AdminStore.js";
 import {useRouter, useRoute} from "vue-router";
 import RouterConstants from "../../common/RouterConstants.ts";

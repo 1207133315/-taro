@@ -61,7 +61,7 @@ import {useRouter, useRoute} from "vue-router";
 import {ref, reactive, inject, onMounted} from "vue";
 import RichTextEditor from "../../components/RichTextEditor.vue"
 import BlogList from "../../components/BlogList.vue"
-import "../detail/less/Article.less"
+import "../dashboard/less/Article.less"
 const thisRouter = useRouter()
 const route = useRoute()
 const axios = inject("axios")
