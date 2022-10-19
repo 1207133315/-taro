@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>display</title>
+</head>
+<body>
+<!--    块元素 居右宽高属性并且独占一行-->
+  <div></div>
+<!--行内元素,没有宽高属性,不会独占一行-->
+<span></span>
+
+<!--设置元素为行内块元素,可以设置宽高并且不会独占一行-->
+<div style="display: inline-block"></div>
+
+<!--设置元素为单元格属性,布局视为单元格来处理-->
+<div style="display: table-cell"></div>
+
+<!-- display: none 隐藏元素,并且不占用原来的物理位置
+visibility也可以设置隐藏 但是还是会占用原有物理位置
+display隐藏只能用display显示  visibility同理
+opacity 属性值是0-1  设置元素的透明度  如果设置为0  则和visibility:hidden同样的效果
+-->
+<div style="display: none; visibility: hidden"></div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 {
-    "miniprogramRoot": "dist/",
+    "miniprogramRoot": "dist/weapp/",
     "projectname": "myTaro",
     "description": "vue3项目",
     "appid": "wx8189351a10995b7a",

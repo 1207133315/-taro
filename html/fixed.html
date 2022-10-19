@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>固定定位</title>
+
+  <style>
+    div{
+      height: 1500px;
+    }
+    .box1{
+      background: red;
+    }
+    .son{
+      width: 80px;
+      height: 400px;
+      background: green;
+      /*固定定位
+        始终是根据屏幕定位
+        z-index属性设置显示顺序.只支持设置了定位的元素
+      */
+      position: fixed;
+      right: 0;
+      top: 300px;
+      /*可以使先定义的元素显示到上方来*/
+      z-index: 1;
+    }
+    .son2{
+      width: 80px;
+      height: 400px;
+      background: blue;
+      /*固定定位
+        始终是根据屏幕定位
+      */
+      position: fixed;
+      right: 0;
+      top: 400px;
+    }
+
+  </style>
+</head>
+<body>
+1
+  <div class="box1">
+    <div class="son"></div>
+    <div class="son2"></div>
+  </div>
+2
+
+</body>
+</html>

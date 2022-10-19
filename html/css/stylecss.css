@@ -1,0 +1,23 @@
+
+#header{
+  width: 100%;
+  height: 40px;
+
+}
+.header{
+  width: 500px;
+  height: 40px;
+  border: 1px solid red;
+}
+.header_left{
+  width: 100px;
+  height: 40px;
+  background: green;
+  float: left;
+}
+.header_right{
+  width:200px;
+  height: 40px;
+  background: yellow;
+  float: right;
+}

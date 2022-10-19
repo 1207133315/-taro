@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>浮动</title>
+
+  <style>
+    #box {
+
+
+      background: #0efd9d;
+      /*在不设置宽高的情况下 让父类可以感知子类高度 */
+      overflow: hidden;
+    }
+
+    #box > div:first-child {
+      width: 200px;
+      height: 200px;
+      background: green;
+      float: right;
+    }
+
+    #box > div:nth-child(2) {
+      width: 200px;
+      height: 200px;
+      background: red;
+      float: right;
+    }
+
+    #box > div:nth-child(3) {
+      width: 300px;
+      height: 300px;
+      background: rebeccapurple;
+      float: right;
+
+    }
+
+  </style>
+</head>
+<body>
+<div id="box">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<!--    行内元素没有宽高属性 并且不回独占一行  可以利用浮动属性使它的宽高生效-->
+
+
+</body>
+</html>

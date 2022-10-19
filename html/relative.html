@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>相对定位</title>
+
+  <style>
+    div{
+      width: 200px;
+      height: 200px;
+    }
+    .box1{
+      background: red;
+    }
+    .box2{
+      background: green;
+      /*元素就算被定位走 原来的物理位置也依然被占用
+        相对定位以本元素为参照物移动
+      */
+      position: relative;
+      left: 200px;
+    }
+    .box3{
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+
+</body>
+</html>

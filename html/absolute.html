@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>绝对定位</title>
+
+  <style>
+    div{
+      width: 200px;
+      height: 200px;
+    }
+    .box1{
+      background: red;
+    }
+    .box2{
+      width: 500px;
+      height: 500px;
+      background: green;
+      /*元素被绝对定位的话  就不会再占有原来的物理位置
+      绝对定位参考的是 :
+          如果外层元素定位了并且是非static,则参考最近的外层元素的左上角
+          如果外层元素元素没定位  则参考页面0.0点 也就是左上角
+          必须为嵌套层
+      */
+      /*position: absolute;*/
+      /*top: 200px;*/
+      /*left: 200px;*/
+      position: relative;
+      border: 0.5px solid red;
+    }
+    .father{
+      width: 200px;
+      height: 200px;
+      background: aquamarine;
+      margin-left: 20px;
+      margin-top: 20px;
+
+    }
+    .son{
+      width: 100px;
+      height: 100px;
+      background: fuchsia;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+    }
+
+    .box3{
+      background: blue;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div class="box1"></div>
+  <div class="box2">
+    <div class="father">
+      <div class="son"></div>
+    </div>
+  </div>
+  <div class="box3"></div>
+
+</body>
+</html>
